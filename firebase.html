@@ -10,8 +10,7 @@
     <div class="container my-5">
         <h2>Recipes</h2>
         <ul>
-            <li>Mushroom Pizza</li>
-            <li>Beef Burger</li>
+            
         </ul>
         <form>
             <label for="recipe">Add a new recipe:</label>
@@ -21,30 +20,24 @@
                     <input type="button" value="add" class="btn btn-outline-primary">
                 </div>
             </div>
+            <button class="btn my-3 btn-dark">Unscubscribe</button>
         </form>
     </div>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script>
+        var config = {
           apiKey: "AIzaSyAqDk7tRctcSk6PLDNZpqbfSX-nauCOmbY",
           authDomain: "modern-javascript-59fd5.firebaseapp.com",
           projectId: "modern-javascript-59fd5",
           storageBucket: "modern-javascript-59fd5.appspot.com",
           messagingSenderId: "935627962386",
           appId: "1:935627962386:web:8645b5c628e4f5658980cb",
-          measurementId: "G-JZ2XDDGKVD"
+          measurementId: "G-JZ2XDDGKVD",
         };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+    
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
       </script>
     <script src="firebase.js"></script>
 </body>
