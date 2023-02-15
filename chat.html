@@ -49,8 +49,26 @@
             <div class="update-mssg"></div>
         </form>
     </div>
-    <script src="scripts/app.js"></script>
+        <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+        <script>
+        var config = {
+          apiKey: "AIzaSyAqDk7tRctcSk6PLDNZpqbfSX-nauCOmbY",
+          authDomain: "modern-javascript-59fd5.firebaseapp.com",
+          projectId: "modern-javascript-59fd5",
+          storageBucket: "modern-javascript-59fd5.appspot.com",
+          messagingSenderId: "935627962386",
+          appId: "1:935627962386:web:8645b5c628e4f5658980cb",
+          measurementId: "G-JZ2XDDGKVD",
+        };
+    
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+      </script>
+      
     <script src="scripts/chat.js"></script>
     <script src="scripts/ui.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
