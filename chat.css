@@ -1,3 +1,9 @@
+body{
+    background-color: rgb(123, 116, 226);
+    letter-spacing: 0ic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-weight: 200;
+}
 .container{
     max-width: 600px;
 }
@@ -17,4 +23,9 @@
 .time{
     font-size: 0.7em;
     color: crimson;
+}
+.update-mssg{
+    text-align: center;
+    margin: 20px auto;
+    color: darkcyan;
 }

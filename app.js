@@ -1,44 +1,43 @@
-const form = document.querySelector('.quiz-form');
-const correctAnswer =['B', 'B', 'B', 'A'];
-const result = document.querySelector('.result');
+const chatList = document.querySelector('.chat-list');
+const newChatForm = document.querySelector('.new-chat');
+const newNameForm =document.querySelector('.new-name');
+const updateMssg =document.querySelector('.update-mssg');
+const rooms = document.querySelector('.chat-rooms');
 
-form.addEventListener('submit', e=>{
+newChatForm.addEventListener('submit', e =>{
     e.preventDefault();
+    const message = newChatForm.message.value.trim();
+    firstChat.addChat(message)
+    .then(()=>newChatForm.reset())
+    .catch(err => console.log(err))
+})
 
-    let score=0;
-    const userAnswers= [form.q1.value, form.q2.value, form.q3.value, form.q4.value];
+//update username
+newNameForm.addEventListener('submit', e =>{
+    e.preventDefault();
+    //updating the name via the chatroom
+    const newName = newNameForm.name.value.trim();
+    firstChat.updateName(newName);
+    //reset the form
+    newNameForm.reset();
+    //show then hide the update message
+    updateMssg.innerText = `Your name was updated to ${newName}`
+    setTimeout(() => updateMssg.innerText = '', 3000);
 
-    //check answers
-    userAnswers.forEach((answer, index)=>{
-     if( answer === correctAnswer[index]){
-     score +=25;}
 });
-    //console.log(score);
-    //show on screen
-    scrollTo(0,0);
-   // result.querySelector('span').textContent=`${score}%`;
-    result.classList.remove('d-none');
+//update rooms
+rooms.addEventListener('click', e =>{
+    if(e.target.tagName === 'BUTTON'){
+        chatUI.clear();
+        firstChat.updateRoom(e.target.getAttribute('id'))
+        firstChat.getChats(chat => chatUI.render(chat))
+    }
+})
+//check local storage for a name
+const username = localStorage.username ? localStorage.username : 'no-username'
+//class instances
+const chatUI = new ChatUI(chatList);
+const firstChat = new Chatroom(username,'general');
 
-//window objects
-//setTimeout(()=>{
-  //  alert('hello ninja');
-//},3000); 
-/*let i =0;
-const timer = setInterval(()=>{
-    console.log('Isaac');
-    i++;
-    if(i === 5){
-        clearInterval(timer);
-    }
-},1000);*/
-//animating the score
-let output = 0;
-const timer = setInterval(()=>{
-    result.querySelector('span').textContent=`${output}%`; 
-    if(output === score){
-        clearInterval(timer);
-    }else{
-        output++;
-    }
-},10);
-});
+//get chats and render
+firstChat.getChats(data =>chatUI.render(data));
