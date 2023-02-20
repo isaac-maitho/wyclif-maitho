@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @wyclif-maitho
-- 👀 I’m interested in coding...
+- 👀 I love coding...
 - 🌱 I’m currently learning javascript language
-- 💞️ I’m looking to collaborate on learning about Javascript and its frameworks 
+- 💞️ Determined to become a fullstack engineer
 - 📫 How to reach me isaacmaitho14@gmail.com
 
 <!---
